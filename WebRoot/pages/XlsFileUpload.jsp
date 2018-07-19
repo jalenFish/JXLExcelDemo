@@ -72,7 +72,16 @@
      <input type="file" name="uploadxlsfile" id="uploadxlsfile" placeholder="请选择数据文件" size="120" />
     </td>
    </tr>
-
+   <tr class="table_th">
+    <td style="text-align:left">
+     &nbsp;&nbsp;请选择上传模板xls文件：
+    </td>
+   </tr>
+   <tr>
+    <td style="height:60px;">
+     <input type="file" name="mubanfile" id="mubanfile" placeholder="请选择数据文件" size="120" />
+    </td>
+   </tr>
   </table>
   <table>
    <tr>

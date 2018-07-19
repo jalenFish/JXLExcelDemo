@@ -25,7 +25,8 @@ import java.util.Map;
 public class ProduceExcel extends HttpServlet{
     File tempPathFile;
     private String uploadPath = "E:\\ouDataTemp"; // 上传文件的目录
-    String fileName="";//默认文件名
+    String fileName="";     //默认数据文件名
+    String muBanPath="";    //默认模板文件名
 
     public static void main(String[] args) throws IOException {
 
@@ -48,7 +49,7 @@ public class ProduceExcel extends HttpServlet{
     public void createExcel(){
         Map<String,Object> map=new HashMap<String,Object>();
         //这个是模板文件
-        String path = "E:\\000.xls";
+        //String muBanPath = "E:\\000.xls";
         Physical physical=new Physical();
 
         // 这个是excel数据文件：eg：E:/yujianlin/xxxxx.xls，必须是xls格式
@@ -82,8 +83,8 @@ public class ProduceExcel extends HttpServlet{
                 physical.setA10(eachData.get(9));
                 map.put("physical", physical);
 
-                in = ExcelTool.exportExcel(path, map);
-                out = new FileOutputStream(uploadPath+"/allexcel/余建林"+i+".xls");
+                in = ExcelTool.exportExcel(uploadPath+"/"+muBanPath, map);
+                out = new FileOutputStream(uploadPath+"/allexcel/"+i+".xls");
                 BufferedInputStream bin = new BufferedInputStream(in);
                 BufferedOutputStream bout = new BufferedOutputStream(out);
                 while (true) {
@@ -164,7 +165,12 @@ public class ProduceExcel extends HttpServlet{
                 System.out.println(name + ":" + value);
             } else {
                 String fieldName = item.getFieldName();
-                fileName = item.getName();
+                if ("uploadxlsfile".equals(fieldName)){ //数据文件
+                    fileName = item.getName();
+                }else if("mubanfile".equals(fieldName)){
+                    muBanPath = item.getName();
+                }
+
                 String contentType = item.getContentType();
                 boolean isInMem = item.isInMemory();
                 long sizeInBytes = item.getSize();
