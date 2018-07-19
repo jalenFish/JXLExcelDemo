@@ -283,7 +283,7 @@ Dynamic libraries:
 
 VM Arguments:
 jvm_args: -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:62273,suspend=y,server=n -Dfile.encoding=GBK 
-java_command: com.zzgame.demo.util.GetExcelInfo
+java_command: com.jxlgnc.demo.util.GetExcelInfo
 Launcher Type: SUN_STANDARD
 
 Environment Variables:

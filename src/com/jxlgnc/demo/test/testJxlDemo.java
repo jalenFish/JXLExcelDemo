@@ -10,7 +10,7 @@ import com.jxlgnc.demo.util.ExcelTool;
 import com.jxlgnc.demo.util.GetExcelInfo;
 
 public class testJxlDemo {
-	public static void main(String[] args) throws IOException {
+	/*public static void main(String[] args) throws IOException {
 		 Map<String,Object> map=new HashMap<String,Object>();
 		 	//这个是模板文件
 	        String path = "E:\\000.xls";
@@ -86,5 +86,5 @@ public class testJxlDemo {
 
 
 
-	}
+	}*/
 }
