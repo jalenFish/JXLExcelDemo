@@ -1,4 +1,4 @@
-package com.zzgame.demo.util;
+package com.jxlgnc.demo.util;
 
 import java.io.BufferedInputStream;
 import java.io.File;

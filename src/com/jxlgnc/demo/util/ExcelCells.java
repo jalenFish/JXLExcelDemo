@@ -1,4 +1,4 @@
-package com.zzgame.demo.util;
+package com.jxlgnc.demo.util;
 
 import java.util.ArrayList;
 import java.util.List;

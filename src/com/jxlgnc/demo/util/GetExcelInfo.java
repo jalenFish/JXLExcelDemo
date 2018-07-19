@@ -1,4 +1,4 @@
-package com.zzgame.demo.util;
+package com.jxlgnc.demo.util;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

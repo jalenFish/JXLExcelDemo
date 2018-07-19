@@ -1,4 +1,4 @@
-package com.zzgame.demo.util;
+package com.jxlgnc.demo.util;
 
 import java.text.DateFormat;
 import java.text.ParseException;

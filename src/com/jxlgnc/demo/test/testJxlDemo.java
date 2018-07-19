@@ -1,13 +1,13 @@
-package com.zzgame.demo.test;
+package com.jxlgnc.demo.test;
 
 import java.io.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.zzgame.demo.beans.Physical;
-import com.zzgame.demo.util.ExcelTool;
-import com.zzgame.demo.util.GetExcelInfo;
+import com.jxlgnc.demo.beans.Physical;
+import com.jxlgnc.demo.util.ExcelTool;
+import com.jxlgnc.demo.util.GetExcelInfo;
 
 public class testJxlDemo {
 	public static void main(String[] args) throws IOException {
@@ -15,26 +15,6 @@ public class testJxlDemo {
 		 	//这个是模板文件
 	        String path = "E:\\000.xls";
 			Physical physical=new Physical();
-
-	        /*physical.setCompany("xxxxx有限公司");
-	        physical.setDateTimes("2013-10-13");
-//	        String area= hnabaseCityBO.findoneById(jsonObj.get("area").toString()).getBaseChn();
-	        physical.setArea("小寨");//
-	        physical.setPlanNumber("60");
-	        physical.setRealNumber("50");
-	        physical.setPassNumber("40");
-	        physical.setFailNumber("10");
-	        physical.setEndYield("80%");
-	        physical.setAssistOrg("21");
-	        physical.setAssistPrice("21");
-	        physical.setPrevCompany("xxxxx卫生部");
-	        physical.setPrevPrice("2");
-	        physical.setDoctors("王医生");//
-	        physical.setComment("注意休息xxxxx");*/
-//	        physical.setMill("yujianlin");
-//	        physical.setModel("lalalla");
-//	        physical.setSeason("spring");
-//	        map.put("physical", physical);
 
 			// 这个是excel数据文件：eg：E:/yujianlin/xxxxx.xls，必须是xls格式
 			//如果后缀不是xls，请在excel另存为选择 xls 即可
