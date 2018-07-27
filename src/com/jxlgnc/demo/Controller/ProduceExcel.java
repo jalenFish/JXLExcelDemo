@@ -1,6 +1,7 @@
 package com.jxlgnc.demo.Controller;
 
 import com.jxlgnc.demo.beans.Physical;
+import com.jxlgnc.demo.util.DateTool;
 import com.jxlgnc.demo.util.ExcelTool;
 import com.jxlgnc.demo.util.GetExcelInfo;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
@@ -26,7 +27,8 @@ public class ProduceExcel extends HttpServlet{
     File tempPathFile;
     private String uploadPath = "E:\\ouDataTemp"; // 上传文件的目录
     String fileName="";     //默认数据文件名
-    String muBanPath="";    //默认模板文件名
+    String muBanPath="pages/tempFile/000.xls";    //默认模板文件名
+    String filePath=""; //模板文件目录
 
     public static void main(String[] args) throws IOException {
 
@@ -35,18 +37,29 @@ public class ProduceExcel extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        uploadXls(request, response);
+        /*uploadXls(request, response);
         createExcel();
+        request.getRequestDispatcher("pages/success.jsp").forward(request,response);*/
+        doGet(request,response);
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         uploadXls(request, response);
-        createExcel();
+        try {
+            createExcel(request,response);
+        }catch (Exception e){
+            e.printStackTrace();
+            request.getRequestDispatcher("pages/error.jsp").forward(request,response);
+        }
+
+
     }
 
     // 将一条条excel数据根据模板excel文件生成所有的excel
-    public void createExcel(){
+    public void createExcel(HttpServletRequest request,HttpServletResponse response){
+        filePath = request.getSession().getServletContext().getRealPath("pages/tempFile/");
         Map<String,Object> map=new HashMap<String,Object>();
         //这个是模板文件
         //String muBanPath = "E:\\000.xls";
@@ -56,7 +69,7 @@ public class ProduceExcel extends HttpServlet{
         //如果后缀不是xls，请在excel另存为选择 xls 即可
         File file = new File(uploadPath+"/"+fileName);
         if(file==null||"".equals(file)){
-            System.out.println("数据文件不存在，请检查文件是否存在");
+            System.out.println("The file does not exist!please check again.");
             return;
         }
         //obj.readExcel(file);
@@ -81,10 +94,13 @@ public class ProduceExcel extends HttpServlet{
                 physical.setA8(eachData.get(7));
                 physical.setA9(eachData.get(8));
                 physical.setA10(eachData.get(9));
+                physical.setA11(DateTool.getTodayDate());
                 map.put("physical", physical);
 
-                in = ExcelTool.exportExcel(uploadPath+"/"+muBanPath, map);
-                out = new FileOutputStream(uploadPath+"/allexcel/"+i+".xls");
+                //in = ExcelTool.exportExcel(uploadPath+"/"+muBanPath, map);
+                in = ExcelTool.exportExcel( filePath+"/000.xls", map);
+                //CPR-SEASON（第一列）-ESQ-VENDOR（第8）-BOARD / MODEL（第2）
+                out = new FileOutputStream(uploadPath+"/allexcel/"+"CPR-"+eachData.get(0)+"-ESQ-"+eachData.get(7)+"-"+eachData.get(1)+".xls"); //名字在这里
                 BufferedInputStream bin = new BufferedInputStream(in);
                 BufferedOutputStream bout = new BufferedOutputStream(out);
                 while (true) {
@@ -97,10 +113,11 @@ public class ProduceExcel extends HttpServlet{
                 bout.flush();
             }
 
-
+            request.getRequestDispatcher("pages/success.jsp").forward(request,response);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
+
         }finally {
             if (in != null) {
 
@@ -119,6 +136,7 @@ public class ProduceExcel extends HttpServlet{
             }
 
         }
+
     }
 
     public void uploadXls(HttpServletRequest request,

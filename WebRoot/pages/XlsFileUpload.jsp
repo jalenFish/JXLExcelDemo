@@ -56,44 +56,64 @@
          return   reg.test(this);
      }
  </script>
+ <style>
+  .mainContent {
+   width: 100%;
+   margin: auto;
+   text-align: center;
+  }
+  .fileTable,form{
+   width: 50%;
+   margin: auto;
+   text-align: center;
+  }
+ </style>
 </head>
 <body>
 <p>
-<div align="center">
- <form name="uploadxlsform" id="uploadxlsform" enctype="multipart/form-data" action="/ProduceExcel" method="post" >
-  <table border="0" cellpadding="0" cellspacing="0" width="100%" id="table1" class="table_style">
-   <tr class="table_th">
-    <td style="text-align:left">
-     &nbsp;&nbsp;请选择上传数据xls文件：
-    </td>
-   </tr>
-   <tr>
-    <td style="height:60px;">
-     <input type="file" name="uploadxlsfile" id="uploadxlsfile" placeholder="请选择数据文件" size="120" />
-    </td>
-   </tr>
-   <tr class="table_th">
-    <td style="text-align:left">
-     &nbsp;&nbsp;请选择上传模板xls文件：
-    </td>
-   </tr>
-   <tr>
-    <td style="height:60px;">
-     <input type="file" name="mubanfile" id="mubanfile" placeholder="请选择数据文件" size="120" />
-    </td>
-   </tr>
-  </table>
-  <table>
-   <tr>
-    <td>
-     <input type="submit" value="提交" onclick="return check(this.form)" />
-     <%-- <input type="button" value="上 传" name="B1" class="button_common_skyBlue" onclick="uploadxls('<%=request.getContextPath()%>');" />
-     &nbsp;&nbsp; --%>
-     <input type="reset"  value="重 置" name="B2" class="button_common_skyBlue" />
-    </td>
-   </tr>
-  </table>
- </form>
+<div class="mainContent" align="center">
+ <div class="logo">
+  <img src="/pages/images/logo.jpg" width="200" height="200">
+  <img src="/pages/images/name.jpg" width="200" height="200">
+
+ </div>
+ <div class="fileTable">
+  <form name="uploadxlsform" id="uploadxlsform" enctype="multipart/form-data" action="/ProduceExcel" method="post" >
+   <table border="0" cellpadding="0" cellspacing="0" width="100%" id="table1" class="table_style">
+    <tr class="table_th">
+     <td style="text-align:left">
+      &nbsp;&nbsp;请选择上传数据xls文件：
+     </td>
+    </tr>
+    <tr>
+     <td style="height:60px;">
+      <input type="file" name="uploadxlsfile" id="uploadxlsfile" placeholder="请选择数据文件" size="120" />
+     </td>
+    </tr>
+    <%--<tr class="table_th">
+     <td style="text-align:left">
+      &nbsp;&nbsp;请选择上传模板xls文件：
+     </td>
+    </tr>
+    <tr>
+     <td style="height:60px;">
+      <input type="file" name="mubanfile" id="mubanfile" placeholder="请选择数据文件" size="120" />
+     </td>
+    </tr>--%>
+   </table>
+   <table>
+    <tr>
+     <td>
+      <input type="submit" value="提交" onclick="return check(this.form)" />
+      <%-- <input type="button" value="上 传" name="B1" class="button_common_skyBlue" onclick="uploadxls('<%=request.getContextPath()%>');" />
+      &nbsp;&nbsp; --%>
+      <input type="reset"  value="重 置" name="B2" class="button_common_skyBlue" />
+     </td>
+    </tr>
+   </table>
+  </form>
+ </div>
+
 </div>
 </body>
 </html>

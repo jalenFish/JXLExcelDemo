@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="JXLExcelDemo:war exploded">
+    <output-path>$PROJECT_DIR$/classes/artifacts/JXLExcelDemo_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="JXLExcelDemo" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="module" name="jxl-2.6.12.jar" module-name="JXLExcelDemo" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="JXLExcelDemo/web/Web" />
+    </root>
+  </artifact>
+</component>

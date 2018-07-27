@@ -12,6 +12,15 @@ public class Physical {
 	private String A8;
 	private String A9;
 	private String A10;
+	private String A11;
+
+	public String getA11() {
+		return A11;
+	}
+
+	public void setA11(String a11) {
+		A11 = a11;
+	}
 
 	public String getA1() {
 		return A1;
