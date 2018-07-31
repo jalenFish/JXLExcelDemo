@@ -94,7 +94,7 @@ public class ProduceExcel extends HttpServlet{
                 physical.setA8(eachData.get(7));
                 physical.setA9(eachData.get(8));
                 physical.setA10(eachData.get(9));
-                physical.setA11(DateTool.getTodayDate());
+                physical.setA11(DateTool.getTodayDate().toString());
                 map.put("physical", physical);
 
                 //in = ExcelTool.exportExcel(uploadPath+"/"+muBanPath, map);
