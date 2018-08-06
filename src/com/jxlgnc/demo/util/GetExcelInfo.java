@@ -10,6 +10,7 @@ import java.util.List;
 import jxl.Cell;
 import jxl.Sheet;
 import jxl.Workbook;
+import jxl.WorkbookSettings;
 import jxl.read.biff.BiffException;
 
 /**
@@ -74,7 +75,12 @@ public class GetExcelInfo {
         // 创建输入流，读取Excel
         InputStream is = new FileInputStream(file.getAbsolutePath());
         // jxl提供的Workbook类
-        Workbook wb = Workbook.getWorkbook(is);
+        //Workbook wb = Workbook.getWorkbook(is);
+        // 读取excel文件单元格英文出现乱码问题,所以换成下面这样的
+        WorkbookSettings workbookSettings = new WorkbookSettings();
+        workbookSettings.setEncoding("ISO-8859-1");
+        Workbook wb = Workbook.getWorkbook(is,workbookSettings);
+
         // 只有一个sheet,直接处理
         //创建一个Sheet对象
         Sheet sheet = wb.getSheet(0);
