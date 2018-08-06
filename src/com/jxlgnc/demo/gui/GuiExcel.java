@@ -91,9 +91,8 @@ public class GuiExcel extends JFrame {
 
         // 嵌套布局
         imgPanel.setLayout(new FlowLayout(
-                FlowLayout.CENTER,10,10));
-        panel.setLayout(new FlowLayout(
-                FlowLayout.CENTER,10,80));//构建了FlowLayout的布局，居中，宽60，高20
+                FlowLayout.CENTER,10,10)); //构建了FlowLayout的布局，居中，宽60，高20
+        panel.setLayout(new GridLayout(3, 2,20,10));
         btnPanel.setLayout(new FlowLayout(
                 FlowLayout.CENTER,10,100));
         //panel.add(btn1);
